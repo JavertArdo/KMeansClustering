@@ -18,7 +18,7 @@ std::vector<KCenterPointPtr> Init::Forgy(std::vector<KDataPointPtr>* points, int
 			i--;
 		} else {
 			values.push_back(r);
-			centers.push_back(std::make_shared<KCenterPoint>((*points).at(r)->x, (*points).at(r)->y));
+			centers.push_back(std::make_shared<KCenterPoint>(points->at(r)->x, points->at(r)->y));
 		}
 	}
 

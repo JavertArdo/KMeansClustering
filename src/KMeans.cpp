@@ -18,8 +18,8 @@ double KMeans::Error(std::vector<KCenterPointPtr>* centers, std::vector<KDataPoi
 	{
 		for (unsigned int j=0; j<centers->size(); j++)
 		{
-			if ((*points).at(i)->GetCenter() == (*centers).at(j)) {
-				error += std::pow(Distance((*centers).at(j), (*points).at(i)), 2);
+			if (points->at(i)->GetCenter() == centers->at(j)) {
+				error += std::pow(Distance(centers->at(j), points->at(i)), 2);
 			}
 		}
 	}
