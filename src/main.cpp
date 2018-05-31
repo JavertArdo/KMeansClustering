@@ -25,12 +25,20 @@ int main(int argc, char** argv)
 	numOfCenters = std::stoi(argv[argc-1]);
 
 	std::vector<KDataPointPtr> points = ReadData::ReadPoints(filePath.str());
-	std::vector<KCenterPointPtr> centers = Init::Forgy(&points, numOfCenters);
-	//WriteData::WriteCenterPosition(&centers, "../output/centers_begin.txt");
-	//std::vector<double> errors;
-	//errors.push_back(0);
-	//KMeans::Clusterize(&centers, &points, &errors);
-	//WriteData::WriteCenterPosition(&centers, "../output/centers_end.txt");
+	std::vector<KCenterPointPtr> centers;
+
+	if (initMethod.str() == "forgy") {
+		centers = Init::Forgy(&points, numOfCenters);
+	} else {
+		centers = Init::Forgy(&points, numOfCenters);
+	}
+
+	WriteData::WriteCenterPosition(&centers, "../centers_begin.txt");
+
+	std::vector<double> errors = {0};
+	KMeans::Clusterize(&centers, &points, &errors);
+
+	WriteData::WriteCenterPosition(&centers, "../centers_end.txt");
 
 	return 0;
 }
