@@ -10,6 +10,6 @@ for example:
 ```
 
 ## Output files
-* beginning coordinates of centers: output/centers_begin.txt
-* final coordinates of centers: output/centers_end.txt
-* errors in each epoch: output/errors.txt
+* beginning coordinates of centers: centers_begin.txt
+* final coordinates of centers: centers_end.txt
+* errors in each epoch: errors.txt
