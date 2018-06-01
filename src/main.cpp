@@ -33,12 +33,15 @@ int main(int argc, char** argv)
 		centers = Init::Forgy(&points, numOfCenters);
 	}
 
-	WriteData::WriteCenterPosition(&centers, "../centers_begin.txt");
+	WriteData::WriteCenterPosition(&centers, "./centers_begin.txt");
 
 	std::vector<double> errors = {0};
 	KMeans::Clusterize(&centers, &points, &errors);
 
-	WriteData::WriteCenterPosition(&centers, "../centers_end.txt");
+	WriteData::WriteCenterPosition(&centers, "./centers_end.txt");
+
+	errors.erase(errors.begin());
+	WriteData::WriteError(&errors, "./errors.txt");
 
 	return 0;
 }
